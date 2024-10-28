@@ -1,5 +1,5 @@
 function solve(a, b, c){
-    let largestNumber = Math.max(a, Math.max(b, c));
+    let largestNumber = Math.max(a, b, c);
     console.log(`The largest number is ${largestNumber}.`);
 }
 solve(5, -3, 16);
