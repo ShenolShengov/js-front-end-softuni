@@ -2,12 +2,12 @@ function solve(personCount, type, dayOfTheWeek){
 
     let pricePerPerson;
     let discount = 0;
-    if (type == 'Students') {
+    if (type === 'Students') {
         pricePerPerson = priceByDayOfTheWeek(8.45, 9.80, 10.46);
         if (personCount >= 30) {
             discount += 0.15;
         }
-    } else if (type == 'Business') {
+    } else if (type === 'Business') {
         pricePerPerson = priceByDayOfTheWeek(10.90, 15.60, 16);
         if (personCount >= 100) {
             personCount -= 10;
@@ -24,11 +24,11 @@ function solve(personCount, type, dayOfTheWeek){
 
 
     function priceByDayOfTheWeek(fridayPrice, saturdayPrice, sundayPrice){
-        if (dayOfTheWeek == 'Friday') {
+        if (dayOfTheWeek === 'Friday') {
             return fridayPrice;
-        } else if (dayOfTheWeek == 'Saturday') {
+        } else if (dayOfTheWeek === 'Saturday') {
             return saturdayPrice;
-        } else if (dayOfTheWeek == 'Sunday') {
+        } else if (dayOfTheWeek === 'Sunday') {
             return sundayPrice;
         } else {
             return 'Not valid day';
