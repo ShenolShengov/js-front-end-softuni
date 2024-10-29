@@ -1,11 +1,11 @@
 function solve(start, end){
     let sum = 0;
-    let nums = [];
+    let numers = '';
     for (let i = start; i <= end; i++) {
+        numers = numers.concat(i, ' ');
         sum += i;
-        nums.push(i);
     }
-    console.log(...nums);
+    console.log(numers);
     console.log(`Sum: ${sum}`);
 }
 solve(5, 10);
