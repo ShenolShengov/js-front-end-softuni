@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font: 16px/1.5 Lato, sans-serif;
+    box-sizing: border-box;
+}
+
+body, input, textarea, select, option {
+    font: inherit;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.gap-1 {
+    gap: 1em;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.star {
+    width: 20px;
+    height: auto;
+}
+
+.star:has(> svg:hover) ~ .star svg {
+    fill: black;
+}
+
+
+.star:has(~  .star > svg:hover) > svg {
+    fill: orange;
+}
+
+.star:hover > svg {
+    fill: orange;
+}
+
+.d-none {
+    display: none;
+}
+
+.fill-orange {
+    fill: orange;
+}
