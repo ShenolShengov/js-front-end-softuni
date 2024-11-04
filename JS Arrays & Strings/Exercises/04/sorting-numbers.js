@@ -1,12 +1,12 @@
 function solve(arr) {
-    arr.sort((a, b) => a <= b ? -1 : a == b ? 0 : 1);
+    arr.sort((a, b) => a < b ? -1 : a == b ? 0 : 1);
     const result = [];
     const lastIndex = arr.length - 1;
+
     for(let i = 0; i < Math.ceil(arr.length / 2); i++){
         result.push(arr[i]);
-        if(i !== lastIndex - i) {
-            result.push(arr[lastIndex - i]);
-        }
+        const biggestNumber = arr[lastIndex - i];
+        if (biggerElement) arr.push(biggerElement);
     }
     return result;
 }

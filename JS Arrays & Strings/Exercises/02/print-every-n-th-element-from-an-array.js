@@ -1,7 +1,6 @@
-function solve(arr) {
-    arr.sort((a, b) => a.localeCompare(b));
-    for (let i = 0; i < arr.length; i++) {
-        console.log(`${i + 1}.${arr.at(i)}`);
-    }
+function solve(arr, step) {
+    return arr.filter((_, i) => i % step == 0);
 }
-solve(["John", "Bob", "Christina", "Ema"]);
+solve(['5', '20', '31', '4', '20'], 2);
+solve(['dsa','asd', 'test', 'tset'], 2);
+solve(['1', '2','3', '4', '5'], 6);

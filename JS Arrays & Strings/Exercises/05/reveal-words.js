@@ -1,8 +1,6 @@
 function solve(words, template) {
-    words = words.split(", ");
-    for (const word of words) {
-        template = template.replace("*".repeat(word.length), word);
-    }
+    words.split(", ")
+        .forEach(w => template = template.replace('*'.repeat(w.length), w));
     console.log(template);
 }
 solve("great", "softuni is ***** place for learning new programming languages");
