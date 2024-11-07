@@ -8,6 +8,7 @@ function solve(password) {
 
     function passwordsConstarintVioliation(password){
         const errors = [];
+
         ((p, errors) => {
             if(p.length < 6 || p.length > 10) errors.push('Password must be between 6 and 10 characters');
         }
