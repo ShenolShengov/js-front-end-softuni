@@ -1,6 +1,5 @@
 function solve(first, second, third) {
-    const smallestNumber = (...nums) => Math.min(...nums);
-    console.log(smallestNumber(first, second, third));
+    return Math.min(...arguments);
 }
 solve(2, 5, 3);
 solve(600, 342, 123);
