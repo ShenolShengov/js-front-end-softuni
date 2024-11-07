@@ -1,20 +1,10 @@
 function solve(first, second, operator) {
-    const operation = getOperation(operator);
-
-    console.log(operation(first, second));
-
-    function getOperation(operation) {
-        switch (operation) {
-            case "add":
-                return (f, s) => f + s;
-            case "subtract":
-                return (f, s) => f - s;
-            case "multiply":
-                return (f, s) => f * s;
-            case "divide":
-                return (f, s) => f / s;
-        }
-    }
+    const operations = [];
+    operations['multiply'] = (a, b) => a * b;
+    operations['divide'] = (a, b) => a / b;
+    operations['add'] = (a, b) => a + b;
+    operations['subtract'] = (a, b) => a - b;
+    console.log(operations[operator](first, second));
 }
 
 solve(5, 5, "multiply");
