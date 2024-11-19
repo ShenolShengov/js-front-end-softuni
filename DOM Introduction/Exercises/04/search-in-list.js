@@ -5,24 +5,24 @@ function solve() {
 
    if(!searchText) return;
 
-   let matchesCount = 0;
    for(const town of towns) {
       if(town.textContent.includes(searchText)) {
          applyMathStyles(town);
-         matchesCount++;
       } else {
          resetStyles(town);
       }
    }
-
+   const matchesCount = document.querySelectorAll('.match').length;
    resultElement.textContent = `${matchesCount} matches found`;
 
    function applyMathStyles(town) {
+      town.classList.add('match');
       town.style.fontWeight = 'bold';
       town.style.textDecoration = 'underline';
    }
 
    function resetStyles(town) {
+      town.classList.remove('match');
       town.style.textDecoration = 'none';
       town.style.fontWeight = 'normal';
    }
