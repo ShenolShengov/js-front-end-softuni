@@ -3,6 +3,8 @@ function solve() {
    const searchText = document.querySelector('#searchText').value;
    const resultElement = document.querySelector('#result');
 
+   if(!searchText) return;
+
    let matchesCount = 0;
    for(const town of towns) {
       if(town.textContent.includes(searchText)) {
