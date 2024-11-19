@@ -1,46 +1,46 @@
 function solve() {
     const output = document.querySelector("#output");
-    const selectedRows = getSelectedRowsIndexes();
+    const selectedRows = getSelectedRows();
     const dataSelector = generateSelctorForRows(selectedRows);
 
-    
-    const data = [...document.querySelectorAll(dataSelector)].map(e => e.textContent);
+    const data = [...document.querySelectorAll(dataSelector)].map(
+        (e) => e.textContent
+    );
     const formatedData = [];
+    console.log(dataSelector);
 
-    data.forEach((e, i) => {
-        if((i + selectedRows.length) % selectedRows.length == 0){
-            formatedData.push(processRow(data.slice(i, i + selectedRows.length), selectedRows));
-        }
-    });
-
+    while (data.length != 0) {
+        const row = processRow(
+            data.slice(0, selectedRows.length),
+            selectedRows
+        );
+        formatedData.push(row);
+        data.splice(0, selectedRows.length);
+        console.log(data.length);
+    }
     output.value = JSON.stringify(formatedData);
 
-    function processRow(data, selectedRows){
-        const rowsNames = getRowsNames();
+    function processRow(data, selectedRows) {
         const row = {};
-        data.forEach((e, i) => row[rowsNames[selectedRows[i]]] = e);
-        return row;  
+        data.forEach((e, i) => {
+            const currentRowName = selectedRows[i].name;
+            row[currentRowName] = e;
+        });
+        return row;
     }
 
-
-    function getSelectedRowsIndexes(){
+    function getSelectedRows() {
         const selectedRowsIndexes = [];
-        document.querySelectorAll('input[type="checkbox"]')
-            .forEach((e, i) => {
-                if(e.checked) selectedRowsIndexes.push(i);
-            });
+        document.querySelectorAll('input[type="checkbox"]').forEach((e, i) => {
+            if (e.checked) selectedRowsIndexes.push({name: e.getAttribute("name"), index: i});
+        });
         return selectedRowsIndexes;
     }
-    
-    function getRowsNames() {
-        return [...document.querySelectorAll("thead tr th input")]
-            .map(e => e.getAttribute('name'));
-    };
 
-    function generateSelctorForRows(rowIndexes){
+    function generateSelctorForRows(rowIndexes) {
         const singleRowSelector = (i) => `tbody tr td:nth-child(${i})`;
         let selector = [];
-        rowIndexes.forEach((e, i) => selector.push(singleRowSelector(e + 1)));
-        return selector.join(', ');
+        rowIndexes.forEach((e) => selector.push(singleRowSelector(e.index + 1)));
+        return selector.join(", ");
     }
 }
