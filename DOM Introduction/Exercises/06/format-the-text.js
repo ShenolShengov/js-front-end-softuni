@@ -3,7 +3,6 @@ function solve() {
     const outputDiv = document.querySelector("#output");
 
     const generatedHtml = processTextToParagraphs(text, 3);
-
     console.log(generatedHtml);
 
     outputDiv.innerHTML = generatedHtml;
