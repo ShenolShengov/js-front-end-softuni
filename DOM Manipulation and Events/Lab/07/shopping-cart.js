@@ -34,8 +34,6 @@ function solve() {
       textarea.value = textarea.value.trim();
    }
 
-   
-
    const addButtons = document.querySelectorAll('.add-product');
    [...addButtons].forEach(e => e.addEventListener('click', addProduct));
 
