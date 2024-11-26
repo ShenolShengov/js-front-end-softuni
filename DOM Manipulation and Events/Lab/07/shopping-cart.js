@@ -6,7 +6,7 @@ function solve() {
 
    function addProduct(e) {
       const resultEl = document.querySelector('textarea');
-      const productEl = e.target.parentElement.parentElement;
+      const productEl = e.target.closest('.product');
       const productName = productEl.querySelector('.product-title').textContent;
       const productPrice = Number(productEl.querySelector('.product-line-price').textContent).toFixed(2);
 
