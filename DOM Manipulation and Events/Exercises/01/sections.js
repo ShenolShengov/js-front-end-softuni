@@ -18,11 +18,17 @@ function solve() {
       contentEl.appendChild(createBox(text));
    }
 
+   function showBoxText(e){
+      e.target.querySelector('p').style.display = 'block';
+   }
+
    function createBox(text){
       const boxEl = document.createElement('div');
       const pEl = document.createElement('p');
       pEl.textContent = text.trim();
+      pEl.style.display = 'none';
       boxEl.appendChild(pEl);
+      boxEl.addEventListener('click', showBoxText);
       return boxEl;
    }
 }
